@@ -209,10 +209,3 @@ main .section.highlight {
   background-color: var(--light-color);
 }
 
-main .yellow {
-  background-color: yellow;
-}
-
-main .white-text {
-  color: white;
-}
