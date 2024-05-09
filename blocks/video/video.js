@@ -95,7 +95,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
     const placeholder = block.querySelector('picture');
     const link = block.querySelector('a').href;
     block.textContent = '';
-  
     if (placeholder) {
       const wrapper = document.createElement('div');
       wrapper.className = 'video-placeholder';
