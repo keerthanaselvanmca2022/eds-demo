@@ -70,7 +70,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
     sourceEl.setAttribute('src', source);
     sourceEl.setAttribute('type', `video/${source.split('.').pop()}`);
     video.append(sourceEl);
-  
     return video;
   }
   const loadVideoEmbed = (block, link, replacePlaceholder, autoplay) => {
@@ -78,11 +77,9 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       return;
     }
     const url = new URL(link);
-  
     const isYoutube = link.includes('youtube') || link.includes('youtu.be');
     const isVimeo = link.includes('vimeo');
     const isMp4 = link.includes('.mp4');
-  
     let embedEl;
     if (isYoutube) {
       embedEl = embedYoutube(url, replacePlaceholder, autoplay);
@@ -92,7 +89,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       embedEl = getVideoElement(link, replacePlaceholder, autoplay);
     }
     block.replaceChildren(embedEl);
-  
     block.dataset.embedIsLoaded = true;
   };
   export default async function decorate(block) {
