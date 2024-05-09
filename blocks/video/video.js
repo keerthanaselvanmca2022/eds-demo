@@ -23,7 +23,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
     if (url.origin.includes('youtu.be')) {
       [, vid] = url.pathname.split('/');
     }
-  
     const temp = document.createElement('div');
     temp.innerHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
         <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
@@ -31,7 +30,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       </div>`;
     return temp.children.item(0);
   }
-  
   function embedVimeo(url, replacePlaceholder, autoplay) {
     const [, video] = url.pathname.split('/');
     let suffix = '';
@@ -51,7 +49,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       </div>`;
     return temp.children.item(0);
   }
-  
   function getVideoElement(source, replacePlaceholder, autoplay) {
     const video = document.createElement('video');
     video.setAttribute('controls', '');
@@ -69,7 +66,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
         });
       }
     }
-  
     const sourceEl = document.createElement('source');
     sourceEl.setAttribute('src', source);
     sourceEl.setAttribute('type', `video/${source.split('.').pop()}`);
@@ -77,7 +73,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
   
     return video;
   }
-  
   const loadVideoEmbed = (block, link, replacePlaceholder, autoplay) => {
     if (block.dataset.embedIsLoaded) {
       return;
@@ -100,7 +95,6 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
   
     block.dataset.embedIsLoaded = true;
   };
-  
   export default async function decorate(block) {
     const placeholder = block.querySelector('picture');
     const link = block.querySelector('a').href;
@@ -127,4 +121,3 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       observer.observe(block);
     }
   }
-  
