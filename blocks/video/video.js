@@ -110,3 +110,4 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       observer.observe(block);
     }
   }
+  
