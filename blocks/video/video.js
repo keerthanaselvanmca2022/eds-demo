@@ -1,29 +1,29 @@
 function embedYoutube(url, replacePlaceholder, autoplay) {
-    const usp = new URLSearchParams(url.search);
-    let suffix = '';
-    if (replacePlaceholder || autoplay) {
-      const suffixParams = {
-        autoplay: '1',
-        mute: autoplay ? '1' : '0',
-        controls: autoplay ? '0' : '1',
-        disablekb: autoplay ? '1' : '0',
-        loop: autoplay ? '1' : '0',
-        playsinline: autoplay ? '1' : '0',
-      };
-      suffix = `&${Object.entries(suffixParams).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')}`;
-    }
-    let vid = usp.get('v') ? encodeURIComponent(usp.get('v')) : '';
-    const embed = url.pathname;
-    if (url.origin.includes('youtu.be')) {
-      [, vid] = url.pathname.split('/');
-    }
-    const temp = document.createElement('div');
-    temp.innerHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-        <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
-        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
-      </div>`;
-    return temp.children.item(0);
+  const usp = new URLSearchParams(url.search);
+  let suffix = '';
+  if (replacePlaceholder || autoplay) {
+    const suffixParams = {
+      autoplay: '1',
+      mute: autoplay ? '1' : '0',
+      controls: autoplay ? '0' : '1',
+      disablekb: autoplay ? '1' : '0',
+      loop: autoplay ? '1' : '0',
+      playsinline: autoplay ? '1' : '0',
+    };
+    suffix = `&${Object.entries(suffixParams).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')}`;
   }
+  let vid = usp.get('v') ? encodeURIComponent(usp.get('v')) : '';
+  const embed = url.pathname;
+  if (url.origin.includes('youtu.be')) {
+    [, vid] = url.pathname.split('/');
+  }
+  const temp = document.createElement('div');
+  temp.innerHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
+    <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
+    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
+    </div>`;
+  return temp.children.item(0);
+}
   function embedVimeo(url, replacePlaceholder, autoplay) {
     const [, video] = url.pathname.split('/');
     let suffix = '';
@@ -110,4 +110,4 @@ function embedYoutube(url, replacePlaceholder, autoplay) {
       observer.observe(block);
     }
   }
-  
+ 
