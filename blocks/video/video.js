@@ -42,8 +42,7 @@ function embedVimeo(url, replacePlaceholder, autoplay) {
     title="Content from Vimeo" loading="lazy"></iframe>
     </div>`;
   return temp.children.item(0);
-}
-    
+}   
 function getVideoElement(source, replacePlaceholder, autoplay) {
   const video = document.createElement('video');
   video.setAttribute('controls', '');
@@ -57,10 +56,10 @@ function getVideoElement(source, replacePlaceholder, autoplay) {
       video.removeAttribute('controls');
       video.addEventListener('canplay', () => {
       video.muted = true;
-      video.play();
-    });
-  }
-  }
+        video.play();
+        });
+    }
+    }
   const sourceEl = document.createElement('source');
   sourceEl.setAttribute('src', source);
   sourceEl.setAttribute('type', `video/${source.split('.').pop()}`);
@@ -97,9 +96,9 @@ export default async function decorate(block) {
     wrapper.prepend(placeholder);
     wrapper.addEventListener('click', () => {
     loadVideoEmbed(block, link, true, false);
-    });
+      });
   block.append(wrapper);
-  } else {
+    } else {
     block.classList.add('lazy-loading');
     const observer = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {
