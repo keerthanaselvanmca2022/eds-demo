@@ -42,7 +42,7 @@ function embedVimeo(url, replacePlaceholder, autoplay) {
     title="Content from Vimeo" loading="lazy"></iframe>
     </div>`;
   return temp.children.item(0);
-} 
+}
 function getVideoElement(source, replacePlaceholder, autoplay) {
   const video = document.createElement('video');
   video.setAttribute('controls', '');
@@ -56,8 +56,8 @@ function getVideoElement(source, replacePlaceholder, autoplay) {
       video.removeAttribute('controls');
       video.addEventListener('canplay', () => {
         video.muted = true;
-          video.play();
-        });
+        video.play();
+      });
     }
   }
   const sourceEl = document.createElement('source');
