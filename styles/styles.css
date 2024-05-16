@@ -12,15 +12,16 @@
 
 :root {
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: white;
+  --link-color: #3106db;
+  --link-hover-color: #286fdaad;  
+  --background-color:  rgb(225, 224, 224);
   --light-color: #eee;
   --dark-color: #ccc;
-  --text-color: black;
+  --text-color: rgb(78, 78, 223);
+  --header-background-color:  rgb(225, 143, 157);
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: consolas;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -124,11 +125,13 @@ main pre {
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
+  transition-property: margin-right, color;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--link-hover-color);
+  
 }
 
 /* buttons */
@@ -166,6 +169,9 @@ a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
   color: var(--text-color)
+}
+a.button.secondary:hover {
+  text-decoration-color:red ;
 }
 
 main img {
@@ -216,9 +222,4 @@ main .yellow {
 main .white-text {
   color: white;
 }
-
-main .green {
-  background-color: green;
-}
-
 
