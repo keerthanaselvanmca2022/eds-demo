@@ -14,11 +14,11 @@
   /* colors */
   --link-color: #3106db;
   --link-hover-color: #286fdaad;  
-  --background-color:  rgb(225, 224, 224);
+  --background-color:  #e1e0e0;
   --light-color: #eee;
   --dark-color: #ccc;
-  --text-color: rgb(78, 78, 223);
-  --header-background-color:  rgb(225, 143, 157);
+  --text-color: #4e4edf;
+  --header-background-color:  #e18f9d;
 
   /* fonts */
   --body-font-family: consolas;
